@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- ==================== CLIENTES DE DEMOSTRACIÓN ==================== -->
+        <record id="cliente_demo_1" model="pin_naves.cliente">
+            <field name="nombreCliente">Gloria</field>
+            <field name="apellidoCliente">Soto</field>
+            <field name="documentoIdentidadCliente">dni</field>
+            <field name="fechaNacimientoCliente">1995-05-14</field>
+            <field name="estadoCivilCliente">soltero</field>
+            <field name="sexoCliente">femenino</field>
+            <field name="emailCliente">gloria.soto@ejemplo.com</field>
+            <field name="telefonoCliente">600112233</field>
+            <field name="medioContactoCliente">email</field>
+            <field name="observacionesCliente">Interesada en nave logística con muelle de carga.</field>
+            <field name="aceptaComunicacionesCliente" eval="True"/>
+        </record>
+
+        <record id="cliente_demo_2" model="pin_naves.cliente">
+            <field name="nombreCliente">Carlos</field>
+            <field name="apellidoCliente">Mendoza</field>
+            <field name="documentoIdentidadCliente">nie</field>
+            <field name="fechaNacimientoCliente">1984-11-22</field>
+            <field name="estadoCivilCliente">casado</field>
+            <field name="sexoCliente">masculino</field>
+            <field name="emailCliente">carlos.mendoza@ejemplo.com</field>
+            <field name="telefonoCliente">611445566</field>
+            <field name="medioContactoCliente">telefono</field>
+            <field name="observacionesCliente">Busca almacén de 500 m2 en zona industrial.</field>
+            <field name="aceptaComunicacionesCliente" eval="False"/>
+        </record>
+
+        <!-- ==================== PRESUPUESTOS DE DEMOSTRACIÓN ==================== -->
+        <record id="presupuesto_demo_1" model="pin_naves.presupuesto">
+            <field name="cliente_id" ref="cliente_demo_1"/>
+            <field name="nombrePresupuesto">Nave Industrial Polígono Malpica</field>
+            <field name="descripcionPresupuesto">Alquiler anual de nave industrial de 800 m2 con oficinas y acceso para tráiler.</field>
+            <field name="fechaVencimientoPresupuesto">2026-12-20</field>
+            <field name="estadoPresupuesto">aprobado</field>
+            <field name="prioridadPresupuesto">alta</field>
+            <field name="aplicaIvaPresupuesto" eval="True"/>
+            <field name="precioUnitarioPresupuesto">15000.00</field>
+            <field name="cantidadPresupuesto">3</field>
+        </record>
+
+        <record id="presupuesto_demo_2" model="pin_naves.presupuesto">
+            <field name="cliente_id" ref="cliente_demo_2"/>
+            <field name="nombrePresupuesto">Almacén Logístico Plaza</field>
+            <field name="descripcionPresupuesto">Presupuesto de acondicionamiento y alquiler de módulo logístico.</field>
+            <field name="fechaVencimientoPresupuesto">2026-12-30</field>
+            <field name="estadoPresupuesto">pendiente</field>
+            <field name="prioridadPresupuesto">media</field>
+            <field name="aplicaIvaPresupuesto" eval="True"/>
+            <field name="precioUnitarioPresupuesto">9500.00</field>
+            <field name="cantidadPresupuesto">2</field>
+        </record>
+
+        <!-- ==================== SEGUIMIENTOS DE DEMOSTRACIÓN ==================== -->
+        <record id="seguimiento_demo_1" model="pin_naves.seguimiento">
+            <field name="cliente_id" ref="cliente_demo_1"/>
+            <field name="presupuesto_id" ref="presupuesto_demo_1"/>
+            <field name="fechaContacto">2026-11-16 10:30:00</field>
+            <field name="medioContacto">telefono</field>
+            <field name="estadoSeguimiento">en_proceso</field>
+            <field name="estadoCliente">interesado</field>
+            <field name="notasSeguimiento">Revisados los planos de acceso con la clienta; confirma firma la próxima semana.</field>
+            <field name="fechaProximoContacto">2026-11-23</field>
+            <field name="esUrgente" eval="True"/>
+            <field name="duracionMinutos">25</field>
+        </record>
+
+        <record id="seguimiento_demo_2" model="pin_naves.seguimiento">
+            <field name="cliente_id" ref="cliente_demo_2"/>
+            <field name="presupuesto_id" ref="presupuesto_demo_2"/>
+            <field name="fechaContacto">2026-11-16 16:00:00</field>
+            <field name="medioContacto">email</field>
+            <field name="estadoSeguimiento">pendiente</field>
+            <field name="estadoCliente">interesado</field>
+            <field name="notasSeguimiento">Enviado presupuesto actualizado por correo electrónico.</field>
+            <field name="fechaProximoContacto">2026-11-25</field>
+            <field name="esUrgente" eval="False"/>
+            <field name="duracionMinutos">15</field>
+        </record>
+    </data>
+</odoo>

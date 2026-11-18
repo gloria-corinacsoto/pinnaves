@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+   
+    <record id="view_cliente_list" model="ir.ui.view">
+        <field name="name">pin_naves.cliente.list</field>
+        <field name="model">pin_naves.cliente</field>
+        <field name="arch" type="xml">
+            <list string="Lista Clientes">
+                <field name="nombreCompletoCliente"/>
+                <field name="documentoIdentidadCliente"/>
+                <field name="edadCliente"/>
+                <field name="estadoCivilCliente"/>
+                <field name="telefonoCliente"/>
+                <field name="medioContactoCliente"/>
+                <field name="presupuestosCount"/>
+            </list>
+        </field>
+    </record>
+
+   
+    <record id="view_cliente_form" model="ir.ui.view">
+        <field name="name">pin_naves.cliente.form</field>
+        <field name="model">pin_naves.cliente</field>
+        <field name="arch" type="xml">
+            <form string="Formulario Clientes">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_ver_presupuestos" type="object"
+                                class="oe_stat_button" icon="fa-file-text-o">
+                            <field name="presupuestosCount" widget="statinfo" string="Presupuestos"/>
+                        </button>
+                    </div>
+                    <field name="imagenCliente" widget="image" class="oe_avatar"/>
+                    <group>
+                        <group>
+                            <field name="nombreCliente"/>
+                            <field name="apellidoCliente"/>
+                            <field name="nombreCompletoCliente"/>
+                            <field name="documentoIdentidadCliente"/>
+                            <field name="fechaNacimientoCliente"/>
+                            <field name="edadCliente"/>
+                        </group>
+                        <group>
+                            <field name="estadoCivilCliente"/>
+                            <field name="sexoCliente"/>
+                            <field name="emailCliente"/>
+                            <field name="telefonoCliente"/>
+                            <field name="medioContactoCliente"/>
+                            <field name="aceptaComunicacionesCliente"/>
+                            <field name="fechaRegistroCliente"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Presupuestos">
+                            <field name="presupuesto_ids"/>
+                        </page>
+                        <page string="Seguimientos">
+                            <field name="seguimiento_ids"/>
+                        </page>
+                        <page string="Observaciones">
+                            <field name="observacionesCliente"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    
+    <record id="view_cliente_search" model="ir.ui.view">
+        <field name="name">pin_naves.cliente.search</field>
+        <field name="model">pin_naves.cliente</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Clientes">
+                <field name="nombreCompletoCliente"/>
+                <field name="emailCliente"/>
+                <field name="telefonoCliente"/>
+
+                <filter name="filtro_comunicaciones" string="Aceptan comunicaciones"
+                        domain="[('aceptaComunicacionesCliente', '=', True)]"/>
+                <filter name="filtro_email" string="Contacto por email"
+                        domain="[('medioContactoCliente', '=', 'email')]"/>
+                <filter name="filtro_telefono" string="Contacto por teléfono"
+                        domain="[('medioContactoCliente', '=', 'telefono')]"/>
+
+                <group>
+                    <filter name="group_documento" string="Documento"
+                            context="{'group_by': 'documentoIdentidadCliente'}"/>
+                    <filter name="group_estado_civil" string="Estado civil"
+                            context="{'group_by': 'estadoCivilCliente'}"/>
+                    <filter name="group_medio" string="Medio de contacto"
+                            context="{'group_by': 'medioContactoCliente'}"/>
+                    <filter name="group_sexo" string="Sexo"
+                            context="{'group_by': 'sexoCliente'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+   
+    <record id="action_cliente" model="ir.actions.act_window">
+        <field name="name">CLIENTES</field>
+        <field name="res_model">pin_naves.cliente</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+   
+    <menuitem id="menu_pin_naves_root"
+              name="Gestion Pin Naves"
+              sequence="10"
+              web_icon="gestion_ventas_pinnaves,static/description/icon.png"
+              groups="base.group_user"/>
+
+    <menuitem id="menu_pin_naves_cliente"
+              parent="menu_pin_naves_root"
+              name="Clientes"
+              action="action_cliente"
+              sequence="10"
+              groups="base.group_user"/>
+
+</odoo>

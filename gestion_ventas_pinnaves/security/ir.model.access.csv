@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cliente_user,access.cliente.user,model_pin_naves_cliente,base.group_user,1,1,1,1
+access_presupuesto_user,access.presupuesto.user,model_pin_naves_presupuesto,base.group_user,1,1,1,1
+access_seguimiento_user,access.seguimiento.user,model_pin_naves_seguimiento,base.group_user,1,1,1,1
