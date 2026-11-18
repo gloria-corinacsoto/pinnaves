@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <!-- 1. Vista LIST -->
+    
     <record id="view_list_pin_naves_seguimiento" model="ir.ui.view">
         <field name="name">pin.naves.seguimiento.list</field>
         <field name="model">pin_naves.seguimiento</field>
@@ -20,7 +20,7 @@
         </field>
     </record>
 
-    <!-- 2. Vista FORM -->
+   
     <record id="view_form_pin_naves_seguimiento" model="ir.ui.view">
         <field name="name">pin.naves.seguimiento.form</field>
         <field name="model">pin_naves.seguimiento</field>
@@ -59,7 +59,7 @@
         </field>
     </record>
 
-    <!-- 3. Vista SEARCH -->
+   
     <record id="view_search_pin_naves_seguimiento" model="ir.ui.view">
         <field name="name">pin.naves.seguimiento.search</field>
         <field name="model">pin_naves.seguimiento</field>
@@ -85,7 +85,7 @@
         </field>
     </record>
 
-    <!-- 4. Vista CALENDAR -->
+    
     <record id="view_calendar_pin_naves_seguimiento" model="ir.ui.view">
         <field name="name">pin.naves.seguimiento.calendar</field>
         <field name="model">pin_naves.seguimiento</field>
@@ -98,7 +98,7 @@
         </field>
     </record>
 
-    <!-- 5. Acción de ventana -->
+   
     <record id="action_pin_naves_seguimiento" model="ir.actions.act_window">
         <field name="name">Seguimientos</field>
         <field name="res_model">pin_naves.seguimiento</field>
@@ -110,7 +110,7 @@
         </field>
     </record>
 
-    <!-- 6. Menú -->
+   
     <menuitem id="menu_pin_naves_seguimiento"
               name="Seguimientos"
               parent="menu_pin_naves_root"
